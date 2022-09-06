@@ -19,4 +19,4 @@
 # Walkthrough video
 ## https://drive.google.com/file/d/1UcZC7idm4tfLb5n4iwErreey7V3SIZTc/view
 ### URL github https://github.com/brandonslimwilliams/Team-Profile-Generator.git
-### sample HTML 
+![](images/2022-09-06%20(4).png)
