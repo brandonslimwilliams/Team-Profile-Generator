@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/brandonslimwilliams/Team-Profile-Generator#readme",
   "devDependencies": {
-    "jest": "^29.0.1"
+    "jest": "^29.0.2"
+  },
+  "dependencies": {
+    "test": "^3.2.1"
   }
 }
