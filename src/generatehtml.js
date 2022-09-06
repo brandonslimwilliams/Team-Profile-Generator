@@ -5,6 +5,7 @@ const generateManager = function (manager) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${manager.name}</h3>
+                <h4>Manager</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${manager.id}</p>
@@ -23,6 +24,7 @@ const generateEngineer = function (engineer) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${engineer.name}</h3>
+                <h4>Engineer</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${engineer.id}</p>
@@ -41,6 +43,7 @@ const generateIntern = function (intern) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${intern.name}</h3>
+                <h4>Intern</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>
@@ -61,20 +64,20 @@ generateHTML = (data) => {
 
     // call manager
     if (role === "manager") {
-      const managerCard = generateManager(Employee);
+      const managerCard = generateManager(employee);
 
       pageArray.push(managerCard);
     }
     // call engineer
     if (role === "engineer") {
-      const engineerCard = generateEngineer(Employee);
+      const engineerCard = generateEngineer(employee);
 
       pageArray.push(engineerCard);
     }
 
     // call intern
     if (role === "intern") {
-      const internCard = generateIntern(Employee);
+      const internCard = generateIntern(employee);
 
       pageArray.push(internCard);
     }
@@ -118,7 +121,7 @@ const generateTeamPage = function (employeeCards) {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
-`;
+`
 };
 
 module.exports = generateHTML;

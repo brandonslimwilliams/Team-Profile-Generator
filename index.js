@@ -13,7 +13,7 @@ const inquirer = require('inquirer');
 const teamArray = []; 
 
 // manager prompt
-const addManager = () => {
+const promptManager = () => {
     return inquirer.prompt ([
         {
             type: 'input',
@@ -71,22 +71,26 @@ const addManager = () => {
     ])
     .then(managerInput => {
         const  { name, id, email, office } = managerInput; 
-        const manager = new manager (name, id, email, office);
+        const Manager = new manager (name, id, email, office);
 
-        teamArray.push(manager); 
-        console.log(manager); 
+        teamArray.push(Manager); 
+        console.log(Manager); 
     })
 };
 
-const addEmployee = () => {
-    console.log(``);
+const promptEmployee = () => {
+    console.log(`
+    =================
+    Adding employees to the team
+    =================
+    `);
 
     return inquirer.prompt ([
         {
             type: 'list',
             name: 'role',
             message: "Please assign your employee role.",
-            choices: ['Engineer', 'intern']
+            choices: ['engineer', 'intern']
         },
         {
             type: 'input',
@@ -145,7 +149,7 @@ const addEmployee = () => {
             type: 'input',
             name: 'school',
             message: "Please enter the intern's school",
-            when: (input) => input.role === "Intern",
+            when: (input) => input.role === "intern",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
@@ -181,7 +185,7 @@ const addEmployee = () => {
         teamArray.push(employee); 
 
         if (confirmAddEmployee) {
-            return addEmployee(teamArray); 
+            return promptEmployee(teamArray); 
         } else {
             return teamArray;
         }
@@ -202,8 +206,8 @@ const writeFile = data => {
     })
 }; 
 
-addManager()
-  .then(addEmployee)
+promptManager()
+  .then(promptEmployee)
   .then(teamArray => {
     return generateHTML(teamArray);
   })
